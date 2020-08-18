@@ -2,4 +2,8 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  if user
+    p Welcome #{user.displayName}
+    p <a href="/auth/signout">Sign-out</>
+  else 
+    p Please <a href="/auth/signin">sign-in</>
