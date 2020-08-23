@@ -11,7 +11,7 @@ const ensureAuthenticated = (req, res, next) => {
     }
 }
 
-//router.use(ensureAuthenticated)
+router.use(ensureAuthenticated)
 
 // Protected routes
 
