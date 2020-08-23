@@ -16,7 +16,7 @@ const getAllProjects = async () => {
         .then(async result => { return result })
 }
 
-//router.use(ensureAuthenticated)
+router.use(ensureAuthenticated)
 
 // Protected routes
 
