@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  
+  <h2>View all projects.</h2>
+
+  <div>
+    <table>
+      <tr>
+        <th>Project Name</th>
+        <th>Description</th>
+        <th>View</th>
+      </tr>
+      each project in projects
+        <tr>
+          <td>#{project.name}</td>
+          <td>#{project.description}</td>
+          <td><a href=projects/#{project._id}>#{project._id}</a></td>
+        </tr>
+    </table>
+  </div>
+

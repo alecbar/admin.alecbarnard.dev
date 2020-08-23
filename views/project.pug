@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+
+  <div class="form">
+    <form method="post">
+      <div>
+          <label for="name">Name</label>
+          <input name="name" id="name" value="#{name}"/>
+      </div>
+
+      <div>
+          <label for="summary">Summary</label>
+          <input name="summary" id="summary" value="#{summary}"/>
+      </div>    
+    
+      <div>
+          <label for="description">Description</label>
+          <textarea name="description" id="description">#{description}</textarea>
+      </div> 
+
+      <input class="button" type="submit" value="Save">
+    </form>
+  </div>
