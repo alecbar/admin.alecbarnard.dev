@@ -10,7 +10,7 @@ require('dotenv').config()
 
 // MonogoDB Connected
 const mongoose = require('mongoose')
-mongoose.connect(process.env.MONGO_URI, (err) =>{
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, (err) =>{
   if(err){
     console.log(err)
   }
