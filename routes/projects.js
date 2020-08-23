@@ -11,11 +11,6 @@ const ensureAuthenticated = (req, res, next) => {
     }
 }
 
-const getAllProjects = async () => {
-    Project.find({})
-        .then(async result => { return result })
-}
-
 //router.use(ensureAuthenticated)
 
 // Protected routes
