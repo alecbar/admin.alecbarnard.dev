@@ -2,8 +2,6 @@ extends layout
 
 block content
   h1= title
-  
-  <h2>View all projects.</h2>
 
   <div>
     <table>
@@ -19,5 +17,8 @@ block content
           <td><a href=projects/#{project._id}>#{project._id}</a></td>
         </tr>
     </table>
+    <div>
+      <a class="button" href="/projects/create">Create</a>
+    </div>
   </div>
 
