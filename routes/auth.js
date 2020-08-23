@@ -19,7 +19,6 @@ router.post('/callback', (req, res, next) => {
         {
             response: res,
             failureRedirect: '/',
-            failureFlash: true,
             successRedirect: '/'
         }
     )(req, res, next);
