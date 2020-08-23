@@ -1,8 +1,5 @@
-var express = require('express');
-var router = express.Router();
-var session = require('express-session')
-var flash = require('connect-flash')
-
+const express = require('express');
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -13,22 +10,5 @@ router.get('/', (req, res, next) => {
 
   res.render('index', params)
 })
-
-// Auth middleware
-const ensureAuthenticated = (req, res, next) => {
-  if(req.isAuthenticated()){
-    next()
-  } else {
-    res.redirect("/")
-  }
-}
-
-// Protected routes
-
-router.get('/secret', ensureAuthenticated, (req, res, next) =>{
-  res.send("Top Secret.")
-})
-
-
 
 module.exports = router;

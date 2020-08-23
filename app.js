@@ -5,7 +5,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session')
 var flash = require('connect-flash')
+
 require('dotenv').config()
+
+// MonogoDB Connected
+const mongoose = require('mongoose')
+mongoose.connect(process.env.MONGO_URI, (err) =>{
+  if(!err){
+    console.log("Connected to MongoDB.")
+  }
+}
+)
 
 var passport = require('passport');
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -75,6 +85,7 @@ passport.use(new OIDCStrategy(
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth')
+const projectsRouter = require('./routes/projects')
 
 const graph = require('./graph')
 
@@ -125,6 +136,7 @@ app.use((req, res, next)=> {
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter)
+app.use('/projects', projectsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -81,6 +81,10 @@ textarea {
   color: white
 }
 
+.delete {
+  background-color: red;
+}
+
 label {
   display: block;
   font-size: 18px;

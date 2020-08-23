@@ -4,19 +4,23 @@ block content
   h1= title
 
   <div>
-    <table>
-      <tr>
-        <th>Project Name</th>
-        <th>Description</th>
-        <th>View</th>
-      </tr>
-      each project in projects
+    if !projects[0]
+      <p>No projects yet.</p>
+    else
+      <table>
         <tr>
-          <td>#{project.name}</td>
-          <td>#{project.description}</td>
-          <td><a href=projects/#{project._id}>#{project._id}</a></td>
+          <th>Project Name</th>
+          <th>Summary</th>
+          <th>View</th>
         </tr>
-    </table>
+        each project in projects
+          <tr>
+            <td>#{project.name}</td>
+            <td>#{project.summary}</td>
+            <td><a href=projects/#{project._id}>#{project._id}</a></td>
+          </tr>
+      </table>
+
     <div>
       <a class="button" href="/projects/create">Create</a>
     </div>
