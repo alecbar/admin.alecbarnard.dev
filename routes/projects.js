@@ -43,12 +43,14 @@ router.get('/create', (req, res, next) => {
 // POST a new project
 router.post('/create', (req, res, next) => {
 
-    const { name, summary, description } = req.body
+    const { name, summary, description, link, githubLink } = req.body
     console.log(description)
 
     Project.create({
         name: name,
         summary: summary,
+        githubLink: githubLink,
+        link: link, 
         description: description
     }, (err, result) => {
         if (err) { res.send(err) }
@@ -65,13 +67,15 @@ router.get('/:id', (req, res, next) => {
     Project.findById(id, (err, result) => {
         if (err) { res.send(err) }
 
-        const { _id, name, summary, description } = result
+        const { _id, name, summary, githubLink, link, description } = result
 
         params = {
             _id: _id, 
             title: name,
             name: name,
             summary: summary,
+            githubLink: githubLink,
+            link: link, 
             description: description
         }
 
@@ -82,13 +86,14 @@ router.get('/:id', (req, res, next) => {
 
 // POST update an existing project
 router.post('/:id', (req, res, next) => {
-    const { name, summary, description } = req.body
+    const { name, summary, githubLink, link, description } = req.body
     console.log(description)
-
 
     Project.findByIdAndUpdate(req.params.id, {
         name: name,
         summary: summary,
+        githubLink: githubLink,
+        link: link,
         description: description
     }, (err, result) => {
         if (err) { res.send(err) }
