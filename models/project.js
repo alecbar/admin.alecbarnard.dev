@@ -5,5 +5,6 @@ module.exports = mongoose.model('Project', {
     summary: String,
     githubLink: String,
     link: String,
+    linkFriendly: String,
     description: String
 })
